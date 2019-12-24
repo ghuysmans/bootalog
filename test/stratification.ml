@@ -22,11 +22,12 @@
 
 ***************************************************************************)
 
+open Bootalog
 open OUnit
 open Base
 open Stratification
-open Stratum_test_helper
-open Error_test_helper
+open Helpers.Stratum
+open Helpers.Error
 module PredicateSet = Predicate_set
 
 let pset (list : predicate list) : PredicateSet.t = PredicateSet.from_list (list)

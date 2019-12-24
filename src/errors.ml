@@ -34,7 +34,7 @@ type error =
 
 exception ProgramError of error list
 
-let all_equal (aerrors) (berrors) = (Sort.list (>) aerrors) = (Sort.list (>) berrors)
+let all_equal a b = List.sort compare a = List.sort compare b
 
 let equals (aerrors) (berrors) =
   match (aerrors, berrors) with

@@ -22,8 +22,9 @@
 
 ***************************************************************************)
 
+open Bootalog
 open OUnit
-open Stratum_test_helper
+open Helpers.Stratum
 module DB = Database
 
 let db elements =

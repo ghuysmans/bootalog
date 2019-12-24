@@ -67,8 +67,8 @@ let print_help (print) (optlist : 'a opt list) =
 	       print descr;
 	       print "\n";
 	     end
-	   in let compare_oli (_, a, _, _) (_, b, _, _) = a < b
-	   in List.iter print_opt (Sort.list compare_oli optlist)
+	   in let compare_oli (_, a, _, _) (_, b, _, _) = compare a b
+	   in List.iter print_opt (List.sort compare_oli optlist)
 
 exception Fail
 exception Arg_fail

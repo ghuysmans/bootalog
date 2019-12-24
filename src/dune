@@ -1,0 +1,4 @@
+(ocamllex (modules lexer))
+(library
+ (public_name bootalog)
+ (libraries str num))

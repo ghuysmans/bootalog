@@ -1,20 +1,8 @@
-default: all
+all:
+	dune build src/bootalog.a
 
-all:	depend
-	(cd src; make)
-
-debug:	depend
-	(cd src; OCAMLFLAGS=-g make)
-
-test: all
-	(cd test; make test)
+test:
+	dune runtest
 
 clean:
-	(cd src; make clean)
-	(cd test; make clean)
-
-depend:
-	touch src/.depend
-	touch test/.depend
-	(cd src; make depend)
-	(cd test; make depend)
+	dune clean

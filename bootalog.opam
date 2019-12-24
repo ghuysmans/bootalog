@@ -1,0 +1,14 @@
+opam-version: "1.2"
+name: "bootalog"
+version: "0.3.1"
+maintainer: "Guillaume Huysmans <ghuysmans99@gmail.com>"
+authors: "Christoph Reichenbach <creichen@gmail.com>"
+homepage: "https://github.com/creichen/bootalog/"
+bug-reports: "https://github.com/ghuysmans/bootalog/issues"
+dev-repo: "https://github.com/ghuysmans/bootalog/"
+build: [["dune" "build" "-p" name "-j" jobs]]
+depends: [
+  "dune" {build}
+  "ounit" {build}
+  "base-num"
+]

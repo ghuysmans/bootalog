@@ -1,0 +1,2 @@
+(library (name getopt) (modules getopt) (libraries str))
+(test (name test) (modules test) (libraries getopt oUnit))

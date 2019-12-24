@@ -1,0 +1,12 @@
+(tests
+ (names
+  table
+  eval
+  stratification
+  strlib
+  frontend
+  dynamic_programming
+  access_modes
+  primops
+  labels)
+ (libraries bootalog oUnit helpers))

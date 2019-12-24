@@ -22,6 +22,7 @@
 
 ***************************************************************************)
 
+open Bootalog
 open OUnit
 module PI = Primop_interface
 

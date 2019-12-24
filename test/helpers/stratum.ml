@@ -22,9 +22,9 @@
 
 ***************************************************************************)
 
+open Bootalog
 open Base
 open OUnit
-open Errors
 
 module PI = Primop_interface
 

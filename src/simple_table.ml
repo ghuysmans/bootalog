@@ -73,7 +73,7 @@ type bind_action =
 
 let bind_all table (labels, variables : Literal.body_t) env (continuation) =
   let size = Array.length variables in
-  let actions = Array.create size Check in
+  let actions = Array.make size Check in
   let bound_vars = ref VarSet.empty in
   let check_only = ref true in
   let get_from_env i =

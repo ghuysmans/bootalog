@@ -25,15 +25,16 @@
 let str c = Printf.sprintf "%c" c
 
 let dequote string =
+  let buf = Bytes.of_string string in
   let wrpos = ref 0 in
   let unskip = ref false in
   let append c = begin
-    String.set string (!wrpos) c;
-    wrpos := 1 + (!wrpos)
+    Bytes.set buf (!wrpos) c;
+    incr wrpos
   end
   in begin
-    for rdpos = 0 to (String.length string) - 1 do
-      let c = String.get string rdpos
+    for rdpos = 0 to (Bytes.length buf) - 1 do
+      let c = Bytes.get buf rdpos
       in if !unskip
 	then begin
 	  append c;
@@ -43,7 +44,7 @@ let dequote string =
 	then unskip := true
 	else append c
     done;
-    String.sub string 0 (!wrpos)
+    Bytes.sub buf 0 (!wrpos) |> Bytes.unsafe_to_string
   end
 
 let is_blank c = match c with

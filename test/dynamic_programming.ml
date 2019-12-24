@@ -22,6 +22,7 @@
 
 ***************************************************************************)
 
+open Bootalog
 open OUnit
 open Dynamic_programming
 
@@ -71,9 +72,10 @@ let is_permutation_of arr0 arr1 =
   let cmp (a, (b, c)) (a', (b', c')) =
     let mr x x' next =
       if x == x' then next
-      else x < x'
-    in mr a a' (mr b b' (mr c c' true))
-  in Sort.list cmp arr0 = Sort.list cmp arr1
+      else if x < x' then -1
+      else 1
+    in mr a a' (mr b b' (mr c c' 0))
+  in List.sort cmp arr0 = List.sort cmp arr1
 
 let show_result result =
   match result with
@@ -140,8 +142,8 @@ let check_buffer_size_n n () =
 	   then fill_level
 	   else fill_level + 1
 	 in
-	 let base_array = Array.create n None in
-	 let expected_array = Array.create n None in
+	 let base_array = Array.make n None in
+	 let expected_array = Array.make n None in
 	 begin
 	   for k = 0 to fill_level - 1 do
 	     let elt = Some (m_example (1 + k * 2))

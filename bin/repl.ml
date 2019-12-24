@@ -22,6 +22,7 @@
 
 ***************************************************************************)
 
+open Bootalog
 open Getopt
 open Printf
 include Frontend
@@ -182,8 +183,8 @@ let cmd_help _ =
       Printf.printf "    (* %s *)\n" descr;
     end
   in
-  let cmp_command (name, _, _, _) (name2, _, _, _) = name < name2 in
-  let commands = Sort.list (cmp_command) (!commands_ref)
+  let cmp_command (name, _, _, _) (name2, _, _, _) = compare name name2 in
+  let commands = List.sort cmp_command (!commands_ref)
   in begin
     List.iter update_arg_stats (commands);
     p "Bootalog usage:";

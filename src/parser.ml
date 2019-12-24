@@ -153,14 +153,14 @@ let generic_parse lexbuf =
 
   let check_predicate_conventions (s) =
     begin
-      if String.lowercase (s) <> s
+      if String.lowercase_ascii (s) <> s
       then warning (Printf.sprintf "predicate `%s' violates naming conventions: should be lowercase" s);
       s
     end in
 
   let check_variable_conventions (s) =
     begin
-      if String.uppercase (s) <> s
+      if String.uppercase_ascii (s) <> s
       then warning (Printf.sprintf "variable `%s' violates naming conventions: should be uppercase" s);
       s
     end in
@@ -315,7 +315,7 @@ let generic_parse lexbuf =
 	                     expect (LColon);
 	                     let varname = expect_name ()
 			     in let labels, values = (parse_expecting_separator ())
-				in ((Label.some (String.lowercase varname)) :: labels, varname :: values)
+				in ((Label.some (String.lowercase_ascii varname)) :: labels, varname :: values)
 	                   end
 	| _		-> begin
 	  let label = accept_label ()

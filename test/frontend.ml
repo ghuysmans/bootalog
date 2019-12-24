@@ -22,9 +22,10 @@
 
 ***************************************************************************)
 
+open Bootalog
 open Program.Lexeme
 open OUnit
-open Error_test_helper
+open Helpers.Error
 
 let lex s =
   let buf = Lexing.from_string s in

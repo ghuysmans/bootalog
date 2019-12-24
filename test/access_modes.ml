@@ -22,6 +22,7 @@
 
 ***************************************************************************)
 
+open Bootalog
 open Base
 open OUnit
 module AP = Access_path
